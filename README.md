@@ -7,4 +7,5 @@ Powered conf
 2. `copy configuration files from repo`
 3. `confugure iTerm`
 
+
 ![Settings](./iterm_conf.png)
