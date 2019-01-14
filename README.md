@@ -4,9 +4,10 @@ Powered conf
 ## Installation
 
 1. `iTerm2 + tmux`
-1. `Neovim`
+1. `Install spacemacs`
 2. `Copy configuration files from repo`
-3. `Confugure iTerm`
+3. `$ brew install the_silver_searcher`
+4. `Confugure iTerm`
 
 
 ![Settings](./iterm_conf.png)
