@@ -7,6 +7,7 @@ Powered conf
 1. `Install spacemacs`
 2. `Copy configuration files from repo`
 3. `$ brew install the_silver_searcher`
+3. `$ brew install fzf`
 4. `Confugure iTerm`
 
 
