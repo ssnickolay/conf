@@ -2,32 +2,24 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ssnickolay/.oh-my-zsh
+export ZSH="/Users/ssnickolay/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
 
-export DEFAULT_USER="$(whoami)"
-
-POWERLEVEL9K_MODE="awesome-patched"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-WERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=("rvm" "time")
-POWERLEVEL9K_RVM_BACKGROUND="black"
-POWERLEVEL9K_RVM_FOREGROUND="249"
-POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="red"
-
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -55,18 +47,26 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent rvm rails ruby rake history history-substring-search bundler git-extras github postgres)
-export EDITOR='nvim'
+plugins=(
+  git
+  history
+  history-substring-search
+  git-extras
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,14 +99,72 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export DISABLE_AUTO_TITLE=true
-source ~/.bin/tmuxinator.zsh
-export PATH="$PATH:$HOME/.rvm/bin"
-eval "$(pyenv init -)"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
+
+# DIR
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND="clear"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="red"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="clear"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="red"
+
+# RIGHT_PROMP
+# ===========================================================
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' '
+POWERLEVEL9K_WHITESPACE_BETWEEN_RIGHT_SEGMENTS=''
+
+# vcs
+POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
+
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='none'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='076'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='none'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='005'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='none'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='003'
+
+POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
+
+ZSH_THEME='powerlevel9k/powerlevel9k'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+
+export GOPATH=~/Projects/go
+export PATH=$PATH:$GOPATH/bin
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. $NVM_DIR/nvm.sh --no-use
+. $NVM_DIR/bash_completion
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(rbenv init -)"
+
+export LC_ALL=en_US.UTF-8
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+
+. /usr/local/Cellar/asdf/0.7.8/asdf.sh
