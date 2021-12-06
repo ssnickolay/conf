@@ -1,3 +1,4 @@
+export ZSH_DISABLE_COMPFIX="true"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -66,6 +67,7 @@ plugins=(
   history
   history-substring-search
   git-extras
+  asdf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,16 +143,6 @@ source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 export GOPATH=~/Projects/go
 export PATH=$PATH:$GOPATH/bin
 
-export NVM_DIR="$HOME/.nvm"
-. $NVM_DIR/nvm.sh --no-use
-. $NVM_DIR/bash_completion
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(rbenv init -)"
-
 export LC_ALL=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
@@ -166,5 +158,3 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
-
-. /usr/local/Cellar/asdf/0.7.8/asdf.sh
