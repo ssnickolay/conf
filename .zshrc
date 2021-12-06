@@ -134,27 +134,18 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='003'
 
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
 
-ZSH_THEME='powerlevel9k/powerlevel9k'
+ZSH_THEME='powerlevel10k/powerlevel10k'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+# source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+source  ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 export GOPATH=~/Projects/go
 export PATH=$PATH:$GOPATH/bin
 
 export LC_ALL=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ssnickolay/.nvm/versions/node/v10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
