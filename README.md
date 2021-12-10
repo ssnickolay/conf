@@ -10,7 +10,7 @@ Powered conf
 3. `$ brew install the_silver_searcher`
 3. `$ brew install fzf`
 3. `$ $(brew --prefix)/opt/fzf/install`
-4. `Confugure iTerm`
+4. `Confugure iTerm: Set "Applications in terminal may access clipboard" to true`
 
 
 ![Settings](./iterm_conf.png)
