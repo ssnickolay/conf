@@ -1,0 +1,10 @@
+[user]
+        name = Nikolay Sverchkov
+        email = ssnikolay@gmail.com
+[push]
+        default = current
+[core]
+        excludesfile = ~/.gitignore
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
