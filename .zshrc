@@ -60,7 +60,7 @@ export ZSH="/Users/ssnickolay/.oh-my-zsh"
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# Example format: plugins=(rails git textmate ruby lighthouse asdf)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
@@ -139,7 +139,7 @@ ZSH_THEME='powerlevel10k/powerlevel10k'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-source  ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+# source  ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 export GOPATH=~/Projects/go
 export PATH=$PATH:$GOPATH/bin
@@ -149,3 +149,4 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
+source ~/powerlevel10k/powerlevel10k.zsh-theme
